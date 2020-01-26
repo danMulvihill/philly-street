@@ -18,7 +18,7 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>street name</th>
+            <th>Major street name</th>
           </tr>
         </thead>
         <tbody id="table-body">
@@ -162,15 +162,23 @@
 
     $(function(){
         console.log("test in jquery function")
+        let south = southPhilly.reverse();
+        for (let i = 0; i<south.length; i++){
+            console.log(south.length-i-1)
+            if ((south.length-i-1) < 1) continue;
+            var $row = $('<tr></tr>');
+            $row.append($('<td></td>').text(south.length-i-1))
+            $row.append($('<td></td>').text(south[i][0]))
+
+            $('#table-body').append($row);
+
+        }
+
         for (let i = 0; i<northPhilly.length; i++){
-            console.log(northPhilly.length)
             var $row = $('<tr></tr>');
             $row.append($('<td></td>').text(i))
             $row.append($('<td></td>').text(northPhilly[i][0]))
-            console.log($row)
-            console.log(northPhilly[i][0]);
             $('#table-body').append($row);
-
         }
     });    
     </script>
